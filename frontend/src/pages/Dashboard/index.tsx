@@ -32,11 +32,6 @@ const Dashboard = () => {
         <div className="py-3">
           <h5 className=" text-secondary">Detalhe Vendas</h5>
           <DataTable />
-          <DataTable />
-          <DataTable />
-          <DataTable />
-          <DataTable />
-
 
         </div>
 

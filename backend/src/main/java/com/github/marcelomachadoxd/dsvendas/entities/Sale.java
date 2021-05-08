@@ -1,7 +1,7 @@
 package com.github.marcelomachadoxd.dsvendas.entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -15,9 +15,7 @@ public class Sale {
     private Integer visited;
     private Integer deals;
     private Double amount;
-
-    @Column(name = "date")
-    private Date localDate;
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "seller_id")
@@ -27,12 +25,12 @@ public class Sale {
     }
 
 
-    public Sale(Long id, Integer visited, Integer deals, Double amount, Date localDate, Seller seller) {
+    public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
         this.id = id;
         this.visited = visited;
         this.deals = deals;
         this.amount = amount;
-        this.localDate = localDate;
+        this.date = date;
         this.seller = seller;
     }
 
@@ -69,12 +67,12 @@ public class Sale {
         this.amount = amount;
     }
 
-    public Date getLocalDate() {
-        return localDate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setLocalDate(Date localDate) {
-        this.localDate = localDate;
+    public void setLocalDate(LocalDate date) {
+        this.date = date;
     }
 
     public Seller getSeller() {
@@ -90,12 +88,12 @@ public class Sale {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Sale sale = (Sale) o;
-        return Objects.equals(id, sale.id) && Objects.equals(visited, sale.visited) && Objects.equals(deals, sale.deals) && Objects.equals(amount, sale.amount) && Objects.equals(localDate, sale.localDate) && Objects.equals(seller, sale.seller);
+        return Objects.equals(id, sale.id) && Objects.equals(visited, sale.visited) && Objects.equals(deals, sale.deals) && Objects.equals(amount, sale.amount) && Objects.equals(date, sale.date) && Objects.equals(seller, sale.seller);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, visited, deals, amount, localDate, seller);
+        return Objects.hash(id, visited, deals, amount, date, seller);
     }
 
     @Override
@@ -105,7 +103,7 @@ public class Sale {
             ", visited=" + visited +
             ", deals=" + deals +
             ", amount=" + amount +
-            ", localDate=" + localDate +
+            ", localDate=" + date +
             ", seller=" + seller +
             '}';
     }

@@ -22,7 +22,7 @@ const Dashboard = () => {
           </div>
 
           <div className="col-sm-6">
-            <h5 className="text-center text-secondary">% Sucesso vendas</h5>
+            <h5 className="text-center text-secondary">Total por vendedor</h5>
             <DonutChart />
           </div>
 

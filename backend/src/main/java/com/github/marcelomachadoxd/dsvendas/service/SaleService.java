@@ -1,6 +1,8 @@
 package com.github.marcelomachadoxd.dsvendas.service;
 
 import com.github.marcelomachadoxd.dsvendas.dto.SaleDTO;
+import com.github.marcelomachadoxd.dsvendas.dto.SaleSuccessDTO;
+import com.github.marcelomachadoxd.dsvendas.dto.SaleSumDTO;
 import com.github.marcelomachadoxd.dsvendas.dto.SellerDTO;
 import com.github.marcelomachadoxd.dsvendas.entities.Sale;
 import com.github.marcelomachadoxd.dsvendas.entities.Seller;
@@ -33,5 +35,18 @@ public class SaleService {
         return result.map( x -> new SaleDTO(x));
 
     }
+
+
+    @Transactional(readOnly = true)
+    public List<SaleSumDTO> amountGroupedBySeller(){
+        return repository.amountGroupedBySeller();
+    }
+
+    @Transactional(readOnly = true)
+    public List<SaleSuccessDTO> sucessGroupedBySeller(){
+        return repository.successGroupedBySeller();
+    }
+
+
 
 }
